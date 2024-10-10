@@ -35,11 +35,9 @@ from ament_index_python.packages import get_package_share_directory
 vimbax_camera_share_dir = get_package_share_directory('vimbax_camera')
 
 # Construct the absolute path to the settings files
-# right_settings_file_path = os.path.join(vimbax_camera_share_dir, 'config', 'RIGHT_072ZH_TRIGD.xml')#'bw_trig.xml')
-right_settings_file_path = os.path.join(vimbax_camera_share_dir, 'config', 'RIGHT_072ZH.xml')#'bw_trig.xml')
+right_settings_file_path = os.path.join(vimbax_camera_share_dir, 'config', 'RIGHT_072ZH_TRIGD_BIN.xml')#'bw_trig.xml')
 print("right_settings_file_path:", right_settings_file_path)
-# left_settings_file_path = os.path.join(vimbax_camera_share_dir, 'config', 'LEFT_072ZJ_TRIGS.xml')#'color_trig.xml')
-left_settings_file_path = os.path.join(vimbax_camera_share_dir, 'config', 'LEFT_072ZJ.xml')#'color_trig.xml')
+left_settings_file_path = os.path.join(vimbax_camera_share_dir, 'config', 'LEFT_072ZJ_TRIGS_BIN.xml')#'color_trig.xml')
 print("left_settings_file_path", left_settings_file_path)
 
 def generate_launch_description():
@@ -51,7 +49,6 @@ def generate_launch_description():
             executable='vimbax_camera_node',
             name='vimbax_camera_right',
             parameters=[{
-                "autostream": 1,
                 "camera_id": "DEV_00012C050ADD",
                 "settings_file": right_settings_file_path
             }],
@@ -66,7 +63,6 @@ def generate_launch_description():
             executable='vimbax_camera_node',
             name='vimbax_camera_left',
             parameters=[{
-                "autostream": 1,
                 "camera_id": "DEV_00012C050ADF",
                 "settings_file": left_settings_file_path
             }],
